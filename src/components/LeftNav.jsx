@@ -10,6 +10,7 @@ const LeftNav = () => {
 		useContext(context);
 
 	const navigate = useNavigate();
+	console.log("hello");
 
 	const clickHandler = (name, type) => {
 		switch (type) {
