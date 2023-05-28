@@ -13,12 +13,18 @@ export const AppContext = (props) => {
 
 	const fetchSelectCategoryData = async (query) => {
 		setLoading(true);
-		await fetchData(`search/?q=${query}`).then(({ contents }) => {
+		try {
+			const { contents } = await fetchData(`search/?q=${query}`);
 			setSearchResults(contents);
-			console.log(contents);
+			// console.log(contents);
+			console.log(searchResults);
+		} catch (error) {
+			// Handle the error appropriately
+		} finally {
 			setLoading(false);
-		});
+		}
 	};
+
 	return (
 		<context.Provider
 			value={{

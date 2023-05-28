@@ -10,7 +10,6 @@ const LeftNav = () => {
 		useContext(context);
 
 	const navigate = useNavigate();
-	console.log("hello");
 
 	const clickHandler = (name, type) => {
 		switch (type) {
@@ -29,7 +28,7 @@ const LeftNav = () => {
 			<div className="flex px-5 flex-col">
 				{categories.map((item, ind) => {
 					return (
-						<>
+						<React.Fragment key={item.name}>
 							<LeftMenuNavItem
 								key={ind}
 								text={item.type === "home" ? "Home" : item.name}
@@ -47,7 +46,7 @@ const LeftNav = () => {
 							{item.divider && (
 								<hr className="my-5 border-white/[0.2]" />
 							)}
-						</>
+						</React.Fragment>
 					);
 				})}
 				<hr className="my-5 border-white/[0.2]" />
